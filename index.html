@@ -534,11 +534,9 @@
             .stats {
                 grid-template-columns: 1fr;
             }
-
-            .lottie-container {
-                width: 100px;  /* Ancho deseado */
-                height: 100px; /* Alto deseado */
-            }
+        }
+        #typed-text {
+            display: inline-block;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
@@ -570,6 +568,7 @@
     <section class="hero" id="inicio">
         <div class="container">
             <h1>Soluciones Tecnológicas para Impulsar tu <span id="typed-text"></span></h1>
+            <span id="placeholder-text" style="visibility: hidden; position: absolute;">Emprendimiento</span>
             <p>En CodeHub transformamos desafíos en oportunidades a través de soluciones informáticas innovadoras y personalizadas para empresas chilenas.</p>
             <div class="hero-buttons">
                 <a href="#contacto" class="btn">Solicitar Asesoría</a>
@@ -913,9 +912,9 @@
     <script>
         var typed = new Typed("#typed-text", {
           strings: ["Negocio", "Empresa", "Emprendimiento", "Tienda", "Idea"],
-          typeSpeed: 50,
+          typeSpeed: 100,
           backSpeed: 25,
-          loop: true
+          loop: true,
         });
       </script>
       <script>
