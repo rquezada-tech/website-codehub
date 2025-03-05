@@ -87,6 +87,7 @@
         .logo {
             display: flex;
             align-items: center;
+            margin-left: 15px;
         }
         
         .logo img {
@@ -120,15 +121,21 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(-45deg, #3BB1DC 0%, #2B2B2B 100%);
-            background-size: 400% 400%;
+            /* background: linear-gradient(-45deg, #3BB1DC 0%, #2B2B2B 100%); */
+            /* background-size: 400% 400%; */
             color: white;
             padding: 160px 0 100px;
             text-align: center;
-            animation: gradientMove 15s ease infinite;
+            position: relative;
+           
+            /* animation: gradientMove 15s ease infinite; */
+        }
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
         
-        @keyframes gradientMove {
+        /* @keyframes gradientMove {
             0% {
             background-position: 0% 50%;
             }
@@ -138,7 +145,7 @@
             100% {
                 background-position: 0% 50%;
             }
-        }
+        } */
         
         .hero h1 {
             font-size: 48px;
@@ -474,22 +481,6 @@
             font-size: 14px;
         }
         
-        /* Logo animation */
-        .logo-animated {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        
-        .logo:hover .logo-static {
-            display: none;
-        }
-        
-        .logo:hover .logo-animated {
-            display: block;
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
             .about-content {
@@ -543,8 +534,17 @@
             .stats {
                 grid-template-columns: 1fr;
             }
+
+            .lottie-container {
+                width: 100px;  /* Ancho deseado */
+                height: 100px; /* Alto deseado */
+            }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -569,7 +569,7 @@
     <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="container">
-            <h1>Soluciones Tecnológicas para Impulsar tu Negocio</h1>
+            <h1>Soluciones Tecnológicas para Impulsar tu <span id="typed-text"></span></h1>
             <p>En CodeHub transformamos desafíos en oportunidades a través de soluciones informáticas innovadoras y personalizadas para empresas chilenas.</p>
             <div class="hero-buttons">
                 <a href="#contacto" class="btn">Solicitar Asesoría</a>
@@ -587,41 +587,104 @@
             </div>
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">💻</div>
+                    <div class="service-icon" id="lottie-software"></div>
                     <h3>Desarrollo de Software</h3>
                     <p>Creamos aplicaciones a medida que optimizan tus procesos de negocio y mejoran la experiencia de tus clientes.</p>
                     <a href="#" class="btn">Saber más</a>
                 </div>
+                <script>
+                    lottie.loadAnimation({
+                        container: document.getElementById('lottie-software'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'https://assets3.lottiefiles.com/packages/lf20_jcikwtux.json' // URL de la animación Lottie
+                    });
+                    document.getElementById('lottie-software').style.width = "280px";
+                </script>
                 <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">🔒</div>
+                    <div class="service-icon" id="lottie-ciberseguridad"></div>
                     <h3>Ciberseguridad</h3>
                     <p>Protegemos tu información y sistemas con soluciones de seguridad avanzadas contra amenazas digitales.</p>
                     <a href="#" class="btn">Saber más</a>
                 </div>
+                <script>
+                    lottie.loadAnimation({
+                        container: document.getElementById('lottie-ciberseguridad'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'https://lottie.host/54a54d8d-79ac-4344-b805-73e22aae4748/18U9kUO9Pb.json'
+                    });
+                </script>                
                 <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">☁️</div>
+                    <div class="service-icon" id="lottie-cloud"></div>
                     <h3>Cloud Computing</h3>
                     <p>Implementamos y gestionamos infraestructuras en la nube para maximizar la eficiencia y reducir costos.</p>
                     <a href="#" class="btn">Saber más</a>
                 </div>
+                <script>
+                    lottie.loadAnimation({
+                        container: document.getElementById('lottie-cloud'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'https://lottie.host/0663cdda-f113-43d1-a982-3b0911c32246/72HubbqbjF.json'
+                    });
+                    document.getElementById('lottie-cloud').style.width = "290px";
+
+                </script>     
                 <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon" id="lottie-bi"></div>
                     <h3>Business Intelligence</h3>
                     <p>Transformamos tus datos en información valiosa para la toma de decisiones estratégicas.</p>
                     <a href="#" class="btn">Saber más</a>
                 </div>
+                <script>
+                    lottie.loadAnimation({
+                        container: document.getElementById('lottie-bi'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'https://lottie.host/39f20219-199c-4c14-925e-a17e97c0ca75/Tko2o4YgQV.json'
+                    });
+                    document.getElementById('lottie-bi').style.width = "290px";
+
+                </script>   
                 <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">🔄</div>
+                    <div class="service-icon" id="lottie-digital"></div>
                     <h3>Transformación Digital</h3>
                     <p>Acompañamos a tu empresa en el proceso de digitalización para adaptarse al mercado actual.</p>
                     <a href="#" class="btn">Saber más</a>
                 </div>
+                <script>
+                    lottie.loadAnimation({
+                        container: document.getElementById('lottie-digital'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'https://lottie.host/07ca168c-4d3c-4cb1-b7a3-b0cede4c799b/bvF5UnI8c8.json'
+                    });
+                    document.getElementById('lottie-digital').style.width = "250px";
+
+                </script>   
                 <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">🔧</div>
+                    <div class="service-icon" id="lottie-soporte"></div>
                     <h3>Soporte Técnico</h3>
                     <p>Brindamos asistencia técnica continua para garantizar el funcionamiento óptimo de tus sistemas.</p>
                     <a href="#" class="btn">Saber más</a>
                 </div>
+                <script>
+                    lottie.loadAnimation({
+                        container: document.getElementById('lottie-soporte'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'https://lottie.host/7b658355-d699-4df4-91e0-71e38a971b48/yXJTosADf1.json'
+                    });
+                    document.getElementById('lottie-soporte').style.width = "290px";
+
+                </script>   
             </div>
         </div>
     </section>
@@ -847,6 +910,25 @@
             });
         });
     </script>
+    <script>
+        var typed = new Typed("#typed-text", {
+          strings: ["Negocio", "Empresa", "Emprendimiento", "Tienda", "Idea"],
+          typeSpeed: 50,
+          backSpeed: 25,
+          loop: true
+        });
+      </script>
+      <script>
+        VANTA.WAVES({
+            el: "#inicio",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00
+        });
+    </script>
 </body>
 </html>
-
